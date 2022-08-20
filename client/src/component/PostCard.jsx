@@ -27,16 +27,18 @@ export const PostCard = ({post}) => {
     }
 
   return (
-    <div className='col-md-5 card p-1 m-2 bg-white justify-content-center d-flex align-items-center shadow' key={post._id}>
-        <h2 className='fw-bold text-break'>{post.title}</h2>
-        <p className='fs-5 text-break'>{post.description}</p>
-        {post.image ? <Link className='d-flex justify-content-center d-flex align-items-center' to={`/image/${post._id}`}>
-            <img className='w-50 mb-2' src={post.image.secure_url} alt={"imagen: " + post._id}/>
+    <div className='card m-3 bg-dark text-white bg-orange d-flex justify-content-center align-items-center tamaño' key={post._id}>
+        
+        {post.image ? <Link to={`/image/${post._id}`}>
+            <img className='card-img-top imgs' src={post.image.secure_url} alt={"imagen: " + post._id}/>
             </Link> : ''}
-        <div className='d-flex justify-content-center align-items-center mt-3'>
-            <button className='btn btn-danger btn-sm mx-1' onClick={() => handleDelete(post._id)}><VscTrash className='fs-5'/></button>
-            <button className='btn btn-success btn-sm text-center' onClick={() => navigate(`/post/${post._id}`)}><VscEdit className='fs-5'/></button>
-        </div>
+            <div className='card-body'>
+                <h4 className='card-title text-break'>{post.title}</h4>
+                <p className='card-text text-break'>{post.description}</p>
+                <button className='btn btn-success btn-sm text-center' onClick={() => navigate(`/post/${post._id}`)}><VscEdit className='fs-5'/></button>
+                <button className='btn btn-danger btn-sm mx-1' onClick={() => handleDelete(post._id)}><VscTrash className='fs-5'/></button>
+            </div>
+        
         
     </div>
   )

@@ -52,11 +52,11 @@ export const PostForm = () => {
             {params.id ? <h2 className='mb-3'>Editar publicación</h2> : <h2 className='mb-3'>Crear publicación</h2>}
 
           <label className='form-label fw-bold fst-italic' htmlFor="t">Agregue un titulo</label>
-          <Field className='form-control border border-primary mt-1 mb-3' placeholder='Titulo' id="t" name='title'/>
+          <Field className='form-control border border-primary mt-1 mb-3' maxlength="16" placeholder='Titulo' id="t" name='title'/>
             <ErrorMessage component="p" className='text-danger' name='title'/>
           
           <label className='form-label mt-1 fw-bold fst-italic' htmlFor="d">Agregue una descripcion</label>
-          <Field className='form-control border border-primary mt-1 mb-3' placeholder='Descripcion' id="d" name='description'/>
+          <Field className='form-control border border-primary mt-1 mb-3' maxlength="57" placeholder='Descripcion' id="d" name='description'/>
             <ErrorMessage component="p" className='text-danger' name='description'/>
           
           {params.id ? '' : 
@@ -66,8 +66,8 @@ export const PostForm = () => {
             </div>
           }
           
-          <button type='button' className='btn btn-secondary mt-3 mb-1' disabled={isSubmitting} onClick={() => navigate("/")}>Volver</button>
           <button className='btn btn-primary' disabled={isSubmitting} type='submit'>{isSubmitting ? "Cargando..." : "Guardar"}</button>
+          <button type='button' className='btn btn-secondary mt-3 mb-1' disabled={isSubmitting} onClick={() => navigate("/")}>Volver</button>
 
         </Form>
         )}
