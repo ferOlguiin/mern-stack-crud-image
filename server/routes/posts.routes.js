@@ -1,8 +1,11 @@
 import { Router } from "express";
-import { createPost, deletePost, getOnePost, getPosts, updatePost } from "../controllers/posts.controllers.js";
+import { createPost, deletePost, getOnePost, getPosts, updatePost, welcome } from "../controllers/posts.controllers.js";
 const router = Router();
 import fileUpload from "express-fileupload";
 
+
+//Inicio
+router.get("/", welcome);
 
 router.get("/posts", getPosts);
 

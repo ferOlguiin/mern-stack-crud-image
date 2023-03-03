@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const url = process.env.REACT_APP_API_BASE_URL;
 
-export const getPostRequest = async () =>  await axios.get('/posts');
+export const getPostRequest = async () =>  await axios.get(`${url}/posts`);
 
 export const createPostRequest = async (posteo) => {
     
@@ -11,15 +12,15 @@ export const createPostRequest = async (posteo) => {
         form.append(key, posteo[key])
     }
     
-    return await axios.post('/create', form, {
+    return await axios.post(`${url}/create`, form, {
         headers: {
             "Content-Type": "Multipart/form-data"
         }
     });
 }
 
-export const deletePostRequest = async id => await axios.delete("/delete/" + id);
+export const deletePostRequest = async id => await axios.delete(`${url}/delete/${id}`);
 
-export const getOnePostRequest = async id => await axios.get("/post/" + id);
+export const getOnePostRequest = async id => await axios.get(`${url}/post/${id}`);
 
-export const updatePostRequest = async (id, newFields) => await axios.put(`/edit/${id}`, newFields);
+export const updatePostRequest = async (id, newFields) => await axios.put(`${url}/edit/${id}`, newFields);

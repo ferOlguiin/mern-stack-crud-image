@@ -2,8 +2,8 @@
 
 export const NotFoundPage = () => {
   return (
-    <div>
-      <h1>No se encontro la pagina tal</h1>
+    <div className="vh-100 d-flex justify-content-center align-items-center">
+      <h1 className="m-0 p-0 text-light fw-bold">No se encontro la pagina que solicitas ⚠</h1>
     </div>
   )
 }

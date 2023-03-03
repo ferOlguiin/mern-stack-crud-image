@@ -1,6 +1,12 @@
 import Post from '../models/Post.js';
 import { deleteImage, uploadImage } from '../utils/cloudinary.js';
 import fs from 'fs-extra';
+import { PORT } from '../config.js';
+
+//inicio
+export const welcome = (req, res) => {
+    return res.send("Bienvenido, accediendo al puerto: " + PORT);
+}
 
 export const getPosts = async (req, res) => {
     
